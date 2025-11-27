@@ -156,7 +156,7 @@ function renderPosts(posts) {
 
 // 投稿の読み込み：バグ入りなので要修正　（データの完全な取得に対するリスナーを設定する必要がある）
 function loadPosts() {
-    const sortOrder = $('#sortOrder').val();
+        const sortOrder = $('#sortOrder').val();
     $('#loadingSpinner').show();
 
     // 既存のリスナーを解除
@@ -166,7 +166,7 @@ function loadPosts() {
     }
 
     // リスナーを設定
-    postsListener = postsRef.on('child_added', (snapshot) => {
+    postsListener = postsRef.on('value', (snapshot) => {
         const posts = [];
         snapshot.forEach((childSnapshot) => {
             posts.push({
